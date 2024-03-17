@@ -36,7 +36,7 @@ jobs:
 
 
       - name: Set Terraform Database Password
-        run: echo "local {password=secrets.PASSWORD_DB}" >> $GITHUB_ENV
+        run: echo "local {password_db =secrets.PASSWORD_DB}" >> $GITHUB_ENV
 
 
       - name: Create S3 Bucket
