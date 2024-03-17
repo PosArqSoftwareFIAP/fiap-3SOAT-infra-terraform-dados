@@ -99,7 +99,7 @@ variable password_db {
 
 variable username_db {
   type        = string
-  default     = null
+  default     = "doadmin"
   description = "doadmin"
 }
 
