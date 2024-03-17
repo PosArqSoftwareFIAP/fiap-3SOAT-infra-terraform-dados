@@ -7,7 +7,7 @@ resource "aws_db_instance" "default" {
   instance_class       = local.instance_class
   identifier           = local.identifier
   username             = local.username
-  password             = random_password.password.result
+  password             = local.password
   parameter_group_name = "default.mysql8.0"
   multi_az             = false
   storage_encrypted    = true
