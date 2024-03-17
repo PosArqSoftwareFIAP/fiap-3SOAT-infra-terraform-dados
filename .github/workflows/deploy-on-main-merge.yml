@@ -31,6 +31,14 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
 
+      - name: Set Terraform Database User
+        run: echo "local {username=secrets.USERNAME_DB}" >> $GITHUB_ENV
+
+
+      - name: Set Terraform Database Password
+        run: echo "local {password=secrets.PASSWORD_DB}" >> $GITHUB_ENV
+
+
       - name: Create S3 Bucket
         run: |
           aws s3 mb s3://pandarium-fiapfood --region us-east-1
