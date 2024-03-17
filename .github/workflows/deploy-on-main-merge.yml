@@ -31,12 +31,12 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
 
-      - name: Set Terraform Database User
-        run: echo "locals {username=secrets.USERNAME_DB}" >> $GITHUB_ENV
+      # - name: Set Terraform Database User
+      #   run: echo "locals {username=secrets.USERNAME_DB}" >> $GITHUB_ENV
 
 
-      - name: Set Terraform Database Password
-        run: echo "locals {password_db =secrets.PASSWORD_DB}" >> $GITHUB_ENV
+      # - name: Set Terraform Database Password
+      #   run: echo "locals {password_db =secrets.PASSWORD_DB}" >> $GITHUB_ENV
 
 
       - name: Create S3 Bucket
@@ -62,7 +62,7 @@ jobs:
       - name: Terraform Plan
         run: |
             if [ "${{ env.destroy }}" == "false" ]; then
-              terraform plan -var-file="execution.tfvars"
+              terraform plan -var-file="execution.tfvars" -var "username=secrets.USERNAME_DB" -var "password_db=secrets.PASSWORD_DB"
             # elif [ "${{ env.destroy }}" == "true" ]; then
             #   terraform plan -destroy
             # else
@@ -74,7 +74,7 @@ jobs:
         
         run: |
             if [ "${{ env.destroy }}" == "false" ]; then
-              terraform apply -var-file="execution.tfvars" -auto-approve
+              terraform apply -var-file="execution.tfvars" -auto-approve  -var "instance_type=secrets.USERNAME_DB" -var "password_db=secrets.PASSWORD_DB"
               echo "Rodando o apply"
             else
               echo "Action not recognized. No Terraform action taken."
