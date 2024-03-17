@@ -44,12 +44,6 @@ variable identifier {
 }
 
 
-variable username {
-  type        = string
-  default     = null
-  description = "Nome do usuario master"
-}
-
 
 
 variable parameter_group_name {
@@ -103,6 +97,7 @@ variable min_size {
     
 
 locals {
+  password_db           = var.password
   identifier            = var.identifier
   allocated_storage     = var.allocated_storage
   storage_type          = var.storage_type
