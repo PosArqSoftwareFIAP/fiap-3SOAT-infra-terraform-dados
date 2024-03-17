@@ -91,6 +91,18 @@ variable min_size {
   description = "min_size"
 }
 
+variable password_db {
+  type        = string
+  default     = null
+  description = ""
+}
+
+variable username_db {
+  type        = string
+  default     = null
+  description = ""
+}
+
 
 
     
