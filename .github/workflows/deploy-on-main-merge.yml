@@ -32,11 +32,11 @@ jobs:
           aws-region: us-east-1
 
       - name: Set Terraform Database User
-        run: echo "local {username=secrets.USERNAME_DB}" >> $GITHUB_ENV
+        run: echo "locals {username=secrets.USERNAME_DB}" >> $GITHUB_ENV
 
 
       - name: Set Terraform Database Password
-        run: echo "local {password_db =secrets.PASSWORD_DB}" >> $GITHUB_ENV
+        run: echo "locals {password_db =secrets.PASSWORD_DB}" >> $GITHUB_ENV
 
 
       - name: Create S3 Bucket
