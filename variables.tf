@@ -97,14 +97,14 @@ variable min_size {
     
 
 locals {
-  password_db           = var.password
+  password_db           = var.password_db
   identifier            = var.identifier
   allocated_storage     = var.allocated_storage
   storage_type          = var.storage_type
   engine                = var.engine
   engine_version        = var.engine_version
   instance_class        = var.instance_class
-  username              = var.username
+  username              = var.username_db
   skip_final_snapshot   = var.skip_final_snapshot
   subnet1               = var.subnet1
   subnet2               = var.subnet2
