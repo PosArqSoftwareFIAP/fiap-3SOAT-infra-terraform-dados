@@ -56,7 +56,9 @@ jobs:
         # run: terraform plan -var-file="execution.tfvars"
 
   createPullRequest:
+    needs: terraformDeploy
     runs-on: ubuntu-latest
+    if: ${{ needs.build.result == 'success' }}
     steps:
       - uses: actions/checkout@v2
 
