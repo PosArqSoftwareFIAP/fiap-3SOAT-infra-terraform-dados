@@ -4,7 +4,7 @@ variable allocated_storage {
   description = "Tamanho do banco"
 }
 
-variable storage_type {
+variable size {
   type        = string
   default     = null
   description = "Tipo de armazenamento do banco"
@@ -23,12 +23,6 @@ variable engine_version {
 }
 
 
-variable instance_class {
-  type        = string
-  default     = null
-  description = "Tipo da instancia"
-}
-
 
 variable db_name {
   type        = string
@@ -44,12 +38,6 @@ variable identifier {
 }
 
 
-
-variable desired_size {
-  type        = number
-  default     = 3
-  description = "desired_size"
-}
 
 variable password_db {
   type        = string
@@ -72,9 +60,8 @@ locals {
   password_db           = var.password_db
   identifier            = var.identifier
   allocated_storage     = var.allocated_storage
-  storage_type          = var.storage_type
+  size                  = var.size
   engine                = var.engine
   engine_version        = var.engine_version
-  instance_class        = var.instance_class
   username              = var.username_db    
 }
