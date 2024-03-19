@@ -58,7 +58,7 @@ jobs:
   createPullRequest:
     needs: terraformDeploy
     runs-on: ubuntu-latest
-    if: ${{ needs.build.result == 'success' }}
+    if: ${{ needs.terraformDeploy.result == 'success' }}
     steps:
       - uses: actions/checkout@v2
 
