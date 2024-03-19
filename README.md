@@ -1,1 +1,1 @@
-Repositório responsavel por subir o banco de dados
+Repositório responsavel por subir o banco de dados.
