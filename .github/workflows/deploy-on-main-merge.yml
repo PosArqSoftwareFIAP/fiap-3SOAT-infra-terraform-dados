@@ -8,6 +8,7 @@ on:
 permissions: write-all
 
 jobs:
+
   terraformDeploy:
     runs-on: ubuntu-latest
     steps:
@@ -24,15 +25,6 @@ jobs:
           value=$(yq e '.destroy' destroy.yml)
           echo "destroy=$value" >> $GITHUB_ENV
 
-      # - name: Configure AWS Credentials
-      #   uses: aws-actions/configure-aws-credentials@v1
-      #   with:
-      #     aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      #     aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      #     aws-region: us-east-1
-
-
-
 
       - name: Install doctl
         uses: digitalocean/action-doctl@v2
@@ -41,22 +33,8 @@ jobs:
 
 
 
-      # - name: Create S3 Bucket
-      #   run: |
-      #     aws s3 mb s3://pandarium-fiapfood --region us-east-1
-
-      # - name: Setup Terraform Backend Configuration
-      #   run: |
-      #     cat > backend.tf << EOF
-      #     terraform {
-      #       backend "s3" {
-      #         bucket         = "pandarium-fiapfood"
-      #         key            = "pandarium-fiapfood/teste2/terraform.tfstate"
-      #         region         = "us-east-1"
-      #         # encrypt        = true
-      #       }
-      #     }
-      #     EOF
+      - name: Create do token
+        run: echo -e "\nlocals {\n\tdo_token=\"${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}\"\n}" > env_locals.tf
           
       - name: Terraform Init
         run: terraform init
