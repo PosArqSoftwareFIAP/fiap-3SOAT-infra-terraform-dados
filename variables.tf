@@ -51,6 +51,19 @@ variable username_db {
   description = "doadmin"
 }
 
+variable region {
+  type        = string
+  default     = "doadmin"
+  description = "doadmin"
+}
+
+
+variable node_count {
+  type        = string
+  default     = "doadmin"
+  description = "doadmin"
+}
+
 
 
     
@@ -64,4 +77,6 @@ locals {
   engine                = var.engine
   engine_version        = var.engine_version
   username              = var.username_db    
+  region                = var.region
+  node_count            = var.node_count 
 }
