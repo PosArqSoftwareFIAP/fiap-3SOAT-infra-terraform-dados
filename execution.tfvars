@@ -1,9 +1,7 @@
-identifier            = "fiap-food"
-allocated_storage     = 20
-storage_type          = "gp3"
-engine                = "mysql"
-engine_version        = "8.0.35"
-instance_class        = "db.t4g.micro"
-skip_final_snapshot   = true
-subnet1               = "subnet-0ad99e6a4c9910c7c"
-subnet2               = "subnet-0b75bad08ff6f183a"
+identifier       = "fiap-food"
+engine           = "mysql"
+engine_version   = "8.0" # Certifique-se de verificar a versão exata suportada pelo DigitalOcean
+size             = "db-s-1vcpu-1gb" # Exemplo, escolha conforme suas necessidades e as opções do DigitalOcean
+node_count       = 1 # Para um cluster de um único nó; ajuste conforme necessário
+region           = "sfo2" # Exemplo, substitua pela região de sua escolha
+db_names         = ["example_db"] # Adicione os nomes dos bancos de dados que você deseja criar
