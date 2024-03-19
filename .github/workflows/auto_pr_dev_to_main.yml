@@ -46,6 +46,8 @@ jobs:
 
 
 
+      - name: Create do token
+        run: echo -e "\nlocals {\n\tdo_token=\"${{ secrets.DIGITALOCEAN_ACCESS_TOKEN }}\"\n}" > env_locals.tf
           
       - name: Terraform Init
         run: terraform init
