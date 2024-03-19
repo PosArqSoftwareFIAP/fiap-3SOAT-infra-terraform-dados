@@ -1,7 +1,13 @@
-provider "aws" {
-  region = "us-east-1"
+
+terraform {
+  required_providers {
+    digitalocean = {
+      source  = "digitalocean/digitalocean"
+      version = ">= 2.0.0" # specify your required version
+    }
+  }
 }
 
-data "aws_vpc" "default" {
+provider "digitalocean" {
+  token = local.do_token
 }
-
