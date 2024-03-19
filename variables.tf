@@ -76,9 +76,5 @@ locals {
   engine                = var.engine
   engine_version        = var.engine_version
   instance_class        = var.instance_class
-  username              = var.username_db
-  skip_final_snapshot   = var.skip_final_snapshot
-  desired_size          = var.desired_size
-  max_size              = var.max_size    
-  min_size              = var.min_size    
+  username              = var.username_db    
 }
